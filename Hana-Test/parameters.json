@@ -7,7 +7,7 @@
         },
         "adminPassword": {
           "value": "Sapbasis@01!"
-        }
+        },
         "virtualNetworks_hana_vnet_name": {
             "value": null
         },
