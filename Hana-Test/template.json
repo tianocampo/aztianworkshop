@@ -21,46 +21,6 @@
         "storageAccounts_hanatestdiag_name": {
             "defaultValue": "hanatestdiag",
             "type": "String"
-        },
-        "virtualMachines_database_serv_name": {
-            "defaultValue": "database-serv",
-            "type": "String"
-        },
-        "networkInterfaces_app_serv526_name": {
-            "defaultValue": "app-serv526",
-            "type": "String"
-        },
-        "networkInterfaces_remoterdp74_name": {
-            "defaultValue": "remoterdp74",
-            "type": "String"
-        },
-        "publicIPAddresses_app_serv_ip_name": {
-            "defaultValue": "app-serv-ip",
-            "type": "String"
-        },
-        "publicIPAddresses_remoterdp_ip_name": {
-            "defaultValue": "remoterdp-ip",
-            "type": "String"
-        },
-        "networkInterfaces_database_serv815_name": {
-            "defaultValue": "database-serv815",
-            "type": "String"
-        },
-        "networkSecurityGroups_app_serv_nsg_name": {
-            "defaultValue": "app-serv-nsg",
-            "type": "String"
-        },
-        "publicIPAddresses_database_serv_ip_name": {
-            "defaultValue": "database-serv-ip",
-            "type": "String"
-        },
-        "networkSecurityGroups_remoterdp_nsg_name": {
-            "defaultValue": "remoterdp-nsg",
-            "type": "String"
-        },
-        "networkSecurityGroups_database_serv_nsg_name": {
-            "defaultValue": "database-serv-nsg",
-            "type": "String"
         }
     },
     "variables": {},
