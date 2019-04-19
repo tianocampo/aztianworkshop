@@ -6,28 +6,12 @@
             "defaultValue": "hana-vnet",
             "type": "String"
         },
-        "storageAccounts_hanadiags_name": {
-            "defaultValue": "hanadiags",
-            "type": "String"
-        },
         "availabilitySets_hana_avset_name": {
             "defaultValue": "hana-avset",
             "type": "String"
         },
-        "virtualMachines_database_serv_name": {
-            "defaultValue": "database-serv",
-            "type": "String"
-        },
-        "networkInterfaces_database_serv805_name": {
-            "defaultValue": "database-serv805",
-            "type": "String"
-        },
         "networkSecurityGroups_database_nsg_name": {
             "defaultValue": "database-nsg",
-            "type": "String"
-        },
-        "publicIPAddresses_database_serv_ip_name": {
-            "defaultValue": "database-serv-ip",
             "type": "String"
         },
         "networkSecurityGroups_remoterdp_nsg_name": {
@@ -42,18 +26,32 @@
     "variables": {},
     "resources": [
         {
+            "type": "Microsoft.Compute/availabilitySets",
+            "apiVersion": "2018-10-01",
+            "name": "[parameters('availabilitySets_hana_avset_name')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "Aligned"
+            },
+            "properties": {
+                "platformUpdateDomainCount": 5,
+                "platformFaultDomainCount": 2,
+                "virtualMachines": []
+            }
+        },
+        {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2018-12-01",
             "name": "[parameters('networkSecurityGroups_application_nsg_name')]",
             "location": "southeastasia",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "27c9ec2b-4e7c-4acf-a38b-ef0097e2b9cf",
+                "resourceGuid": "bc328ee0-32cf-48f6-8dff-3d2f25ee604d",
                 "securityRules": [],
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"7050979b-5cde-4077-a084-a833690837f6\"",
+                        "etag": "W/\"7b467322-1908-4f68-9975-7d6bcfaf26ae\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -73,7 +71,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"7050979b-5cde-4077-a084-a833690837f6\"",
+                        "etag": "W/\"7b467322-1908-4f68-9975-7d6bcfaf26ae\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -93,7 +91,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"7050979b-5cde-4077-a084-a833690837f6\"",
+                        "etag": "W/\"7b467322-1908-4f68-9975-7d6bcfaf26ae\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -113,7 +111,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"7050979b-5cde-4077-a084-a833690837f6\"",
+                        "etag": "W/\"7b467322-1908-4f68-9975-7d6bcfaf26ae\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -133,7 +131,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"7050979b-5cde-4077-a084-a833690837f6\"",
+                        "etag": "W/\"7b467322-1908-4f68-9975-7d6bcfaf26ae\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -153,7 +151,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"7050979b-5cde-4077-a084-a833690837f6\"",
+                        "etag": "W/\"7b467322-1908-4f68-9975-7d6bcfaf26ae\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -181,12 +179,12 @@
             "location": "southeastasia",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "49181794-8144-43c2-9c23-2971196de0ab",
+                "resourceGuid": "804a7ce5-13ce-4d92-bcfc-a0910f841741",
                 "securityRules": [],
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"80660460-25b5-4413-b41a-70f515216106\"",
+                        "etag": "W/\"60587a3f-ae86-4c0a-8bde-096dcbf6d1f5\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -206,7 +204,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"80660460-25b5-4413-b41a-70f515216106\"",
+                        "etag": "W/\"60587a3f-ae86-4c0a-8bde-096dcbf6d1f5\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -226,7 +224,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"80660460-25b5-4413-b41a-70f515216106\"",
+                        "etag": "W/\"60587a3f-ae86-4c0a-8bde-096dcbf6d1f5\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -246,7 +244,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"80660460-25b5-4413-b41a-70f515216106\"",
+                        "etag": "W/\"60587a3f-ae86-4c0a-8bde-096dcbf6d1f5\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -266,7 +264,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"80660460-25b5-4413-b41a-70f515216106\"",
+                        "etag": "W/\"60587a3f-ae86-4c0a-8bde-096dcbf6d1f5\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -286,7 +284,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"80660460-25b5-4413-b41a-70f515216106\"",
+                        "etag": "W/\"60587a3f-ae86-4c0a-8bde-096dcbf6d1f5\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -314,12 +312,12 @@
             "location": "southeastasia",
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "5b790595-1061-4220-a7db-b86daf6aedcc",
+                "resourceGuid": "29de8b72-a3a9-4aef-b787-7660f55d1a55",
                 "securityRules": [],
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"53cf0e9e-bd37-4e02-86a3-40a169072ab0\"",
+                        "etag": "W/\"f3c12de7-7a73-48e5-89c9-b08b4b62c75b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -339,7 +337,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"53cf0e9e-bd37-4e02-86a3-40a169072ab0\"",
+                        "etag": "W/\"f3c12de7-7a73-48e5-89c9-b08b4b62c75b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -359,7 +357,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"53cf0e9e-bd37-4e02-86a3-40a169072ab0\"",
+                        "etag": "W/\"f3c12de7-7a73-48e5-89c9-b08b4b62c75b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -379,7 +377,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"53cf0e9e-bd37-4e02-86a3-40a169072ab0\"",
+                        "etag": "W/\"f3c12de7-7a73-48e5-89c9-b08b4b62c75b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -399,7 +397,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"53cf0e9e-bd37-4e02-86a3-40a169072ab0\"",
+                        "etag": "W/\"f3c12de7-7a73-48e5-89c9-b08b4b62c75b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -419,7 +417,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"53cf0e9e-bd37-4e02-86a3-40a169072ab0\"",
+                        "etag": "W/\"f3c12de7-7a73-48e5-89c9-b08b4b62c75b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -436,78 +434,6 @@
                             "sourceAddressPrefixes": [],
                             "destinationAddressPrefixes": []
                         }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2018-12-01",
-            "name": "[parameters('publicIPAddresses_database_serv_ip_name')]",
-            "location": "southeastasia",
-            "sku": {
-                "name": "Basic",
-                "tier": "Regional"
-            },
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "b1c1bdaa-c7bc-48ee-9708-b4e0cd95a5de",
-                "ipAddress": "104.215.155.62",
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
-                "idleTimeoutInMinutes": 4,
-                "ipTags": []
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2018-07-01",
-            "name": "[parameters('storageAccounts_hanadiags_name')]",
-            "location": "southeastasia",
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": false,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "enabled": true
-                        },
-                        "blob": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "accessTier": "Hot"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2018-10-01",
-            "name": "[parameters('availabilitySets_hana_avset_name')]",
-            "location": "southeastasia",
-            "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_database_serv_name'))]"
-            ],
-            "sku": {
-                "name": "Aligned"
-            },
-            "properties": {
-                "platformUpdateDomainCount": 5,
-                "platformFaultDomainCount": 2,
-                "virtualMachines": [
-                    {
-                        "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_database_serv_name'))]"
                     }
                 ]
             }
@@ -567,115 +493,6 @@
             }
         },
         {
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2018-10-01",
-            "name": "[parameters('virtualMachines_database_serv_name')]",
-            "location": "southeastasia",
-            "dependsOn": [
-                "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_hana_avset_name'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_database_serv805_name'))]",
-                "[resourceId('Microsoft.Storage/StorageAccounts', parameters('storageAccounts_hanadiags_name'))]"
-            ],
-            "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_hana_avset_name'))]"
-                },
-                "hardwareProfile": {
-                    "vmSize": "Standard_E4s_v3"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "SUSE",
-                        "offer": "SLES-SAP",
-                        "sku": "12-sp4",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_database_serv_name'), '_OsDisk_1_3c8c7496fefd48fc9784f0ae4fc1b75f')]",
-                        "createOption": "FromImage",
-                        "caching": "ReadWrite",
-                        "managedDisk": {
-                            "storageAccountType": "Premium_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_database_serv_name'), '_OsDisk_1_3c8c7496fefd48fc9784f0ae4fc1b75f'))]"
-                        },
-                        "diskSizeGB": 30
-                    },
-                    "dataDisks": []
-                },
-                "osProfile": {
-                    "computerName": "[parameters('virtualMachines_database_serv_name')]",
-                    "adminUsername": "adminuser",
-                    "linuxConfiguration": {
-                        "disablePasswordAuthentication": false,
-                        "provisionVMAgent": true
-                    },
-                    "secrets": [],
-                    "allowExtensionOperations": true
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_database_serv805_name'))]"
-                        }
-                    ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "[concat('https://', parameters('storageAccounts_hanadiags_name'), '.blob.core.windows.net/')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2018-12-01",
-            "name": "[parameters('networkInterfaces_database_serv805_name')]",
-            "location": "southeastasia",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_database_serv_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_hana_vnet_name'), 'database')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_database_nsg_name'))]"
-            ],
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "75c91691-06b8-4f22-97e1-defbe407db7e",
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "etag": "W/\"9394ffac-a821-4bad-9f16-cd6238069710\"",
-                        "properties": {
-                            "provisioningState": "Succeeded",
-                            "privateIPAddress": "10.1.1.4",
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_database_serv_ip_name'))]"
-                            },
-                            "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_hana_vnet_name'), 'database')]"
-                            },
-                            "primary": true,
-                            "privateIPAddressVersion": "IPv4"
-                        }
-                    }
-                ],
-                "dnsSettings": {
-                    "dnsServers": [],
-                    "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "a3gjou2zueouvaf4xayhetd5ha.ix.internal.cloudapp.net"
-                },
-                "macAddress": "00-0D-3A-A3-A3-FC",
-                "enableAcceleratedNetworking": true,
-                "enableIPForwarding": false,
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_database_nsg_name'))]"
-                },
-                "primary": true,
-                "tapConfigurations": []
-            }
-        },
-        {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-12-01",
             "name": "[parameters('virtualNetworks_hana_vnet_name')]",
@@ -687,7 +504,7 @@
             ],
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "53974c07-a199-4a1d-80be-b830724c7f38",
+                "resourceGuid": "88e2d211-31fa-4d42-8b41-f2e8f2cdbd67",
                 "addressSpace": {
                     "addressPrefixes": [
                         "10.1.0.0/16"
@@ -696,7 +513,7 @@
                 "subnets": [
                     {
                         "name": "Application",
-                        "etag": "W/\"5b8388d1-ef5c-4529-9b4a-cf3fd8c23b78\"",
+                        "etag": "W/\"2889f440-63a3-41c6-9a22-92e8c5b507e2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "10.1.0.0/24",
@@ -709,7 +526,7 @@
                     },
                     {
                         "name": "remoterdp",
-                        "etag": "W/\"5b8388d1-ef5c-4529-9b4a-cf3fd8c23b78\"",
+                        "etag": "W/\"2889f440-63a3-41c6-9a22-92e8c5b507e2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "10.1.2.0/25",
@@ -722,7 +539,7 @@
                     },
                     {
                         "name": "database",
-                        "etag": "W/\"5b8388d1-ef5c-4529-9b4a-cf3fd8c23b78\"",
+                        "etag": "W/\"2889f440-63a3-41c6-9a22-92e8c5b507e2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "10.1.1.0/25",
