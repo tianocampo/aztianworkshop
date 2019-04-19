@@ -8,7 +8,19 @@
         "availabilitySets_hana_avset_name": {
             "value": null
         },
+        "storageAccounts_hanatestdiag_name": {
+            "value": null
+        },
+        "virtualMachines_database_serv_name": {
+            "value": null
+        },
+        "networkInterfaces_database_serv962_name": {
+            "value": null
+        },
         "networkSecurityGroups_database_nsg_name": {
+            "value": null
+        },
+        "publicIPAddresses_database_serv_ip_name": {
             "value": null
         },
         "networkSecurityGroups_remoterdp_nsg_name": {
