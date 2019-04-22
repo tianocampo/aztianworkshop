@@ -2,37 +2,22 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "adminUsername": {
-          "value": "AdminUser"
-        },
-        "adminPassword": {
-          "value": "Sapbasis@01!"
-        },
-        "virtualNetworks_hana_vnet_name": {
+        "virtualNetworks_sap_vnet_name": {
             "value": null
         },
-        "availabilitySets_hana_avset_name": {
+        "networkSecurityGroups_Spare_sng_name": {
             "value": null
         },
-        "storageAccounts_hanatestdiag_name": {
+        "networkSecurityGroups_Database_nsg_name": {
             "value": null
         },
-        "virtualMachines_database_serv_name": {
+        "networkSecurityGroups_RemoteRDP_nsg_name": {
             "value": null
         },
-        "networkInterfaces_database_serv962_name": {
+        "networkSecurityGroups_Management_nsg_name": {
             "value": null
         },
-        "networkSecurityGroups_database_nsg_name": {
-            "value": null
-        },
-        "publicIPAddresses_database_serv_ip_name": {
-            "value": null
-        },
-        "networkSecurityGroups_remoterdp_nsg_name": {
-            "value": null
-        },
-        "networkSecurityGroups_application_nsg_name": {
+        "networkSecurityGroups_Application_nsg_name": {
             "value": null
         }
     }
